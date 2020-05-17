@@ -98,8 +98,9 @@ def wps_CAMS_RAD(location, date_begin, date_end, dt, email):
     
     print(datainputs_wps)
     response = urlopen('{}{}'.format(str_wps,datainputs_wps))
-    CAMS = pandas.read_csv(response,delimiter=';',comment='#',header=None,names=['TOA', 'CLEAR_SKY_GHI', 'CLEAR_SKY_BHI', 'CLEAR_SKY_DHI', 'CLEAR_SKY_BNI', 'GHI', 'BHI','DHI','BNI','Reliability'])
-     
+    #CAMS = pandas.read_csv(response,delimiter='[;,|/]',comment='#',header=None,names=['TOA', 'CLEAR_SKY_GHI', 'CLEAR_SKY_BHI', 'CLEAR_SKY_DHI', 'CLEAR_SKY_BNI', 'GHI', 'BHI','DHI','BNI','Reliability'])
+    #CAMS = pandas.read_csv(response,delimiter='[;,|/]',comment='#',header=None,names=['T1','T2','TOA', 'CLEAR_SKY_GHI', 'CLEAR_SKY_BHI', 'CLEAR_SKY_DHI', 'CLEAR_SKY_BNI', 'GHI', 'BHI','DHI','BNI','Reliability'],engine='python')
+    CAMS = pandas.read_csv(response,delimiter='[;,/]',comment='#',header=None,names=['T1','T2','TOA', 'CLEAR_SKY_GHI', 'CLEAR_SKY_BHI', 'CLEAR_SKY_DHI', 'CLEAR_SKY_BNI', 'GHI', 'BHI','DHI','BNI','Reliability'],engine='python')
     return CAMS
     
 def wps_Horizon_SRTM(location):
