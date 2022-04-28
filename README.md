@@ -2,7 +2,7 @@
 Philippe Blanc, Alexandre Boilley, Benoit Gschwind, Adam R. Jensen, Lionel Ménard, Yves-Marie Saint-Drenan  
 
 
-## Table of Contents
+## Table of Contents:
 
 [**Preface**](https://github.com/YvesMSaintDrenan/IEA_PVPS_T16_QC_pynb/blob/master/00_Preface.ipynb)
  
