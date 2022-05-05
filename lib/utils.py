@@ -16,6 +16,20 @@ class npEncoder(json.JSONEncoder):
         if isinstance(obj, np.int32):
             return int(obj)
         return json.JSONEncoder.default(self, obj)
+    
+    
+def save_meta(df, filename):
+    # Save meta data
+    with open(filename, 'w') as f:
+        json.dump(df.attrs, f, cls=npEncoder)
+    
+def save_df(df) :
+    """Save data and meta data"""
+    df.to_parquet(TMP_FILE)
+    
+    save_meta(df, META_FILE)
+    
+    
 
 def fetch_data() :
     """ Fetch 3 years of data from OpenDAP or from tmp file"""
@@ -82,11 +96,7 @@ def fetch_data() :
     # Copy metadata
     out.attrs = data.attrs
     
-    out.to_parquet(TMP_FILE)
-    
-    # Save meta data
-    with open(META_FILE, 'w') as f:
-        json.dump(out.attrs, f, cls=npEncoder)
+    save_df(out)
     
     return out
     
