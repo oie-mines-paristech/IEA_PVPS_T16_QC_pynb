@@ -16,7 +16,7 @@ In this chapter we provide a description of the structure of the netcdf used to 
      
     *Further work on the data format are needed to include detailed metada*
 
-[**Chapter 2: Accessing solar measurements**]02_netcdf_format.ipynb)
+[**Chapter 2: Accessing solar measurements**](02_get_netcdf.ipynb)
 
 How to access to solar measurements using a Thredds Data Server.
 
